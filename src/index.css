@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #FFFFFF;
+  color: #0B1220;
+}
+
+::selection {
+  background: #1FC3E6;
+  color: #0A1E64;
+}
+
+/* Signature motif: animated heartbeat / signal pulse line, echoing the mark inside the logo's "O" */
+.pulse-line {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: draw-pulse 2.6s ease-in-out infinite;
+}
+@keyframes draw-pulse {
+  0% { stroke-dashoffset: 300; }
+  55% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -300; }
+}
+
+.pulse-dot {
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.6); opacity: 0.4; }
+}
+
+/* Soft hover lift for cards */
+.lift {
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.lift:hover {
+  transform: translateY(-6px);
+}
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  .pulse-line, .pulse-dot {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Focus visibility */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid #1FC3E6;
+  outline-offset: 3px;
+}
