@@ -1,3 +1,27 @@
+import React from 'react';
+
+// Reusable Logo Component
+function Logo() {
+  return (
+    <div className="inline-flex flex-col select-none">
+      {/* Top Row: CODIFY + np animated badge */}
+      <div className="flex items-center gap-1.5 leading-none">
+        <span className="font-display font-extrabold text-3xl tracking-tight text-navy">
+          CODIFY
+        </span>
+        <span className="relative font-mono text-xs font-bold uppercase text-white bg-black px-1.5 py-0.5 rounded transition-all duration-300 animate-black-shadow">
+          np
+        </span>
+      </div>
+
+      {/* Bottom Row: TECH letter-spaced under CODIFY */}
+      <span className="font-display font-semibold text-[11px] tracking-[0.38em] text-teal uppercase leading-none mt-1 pl-0.5">
+        TECH
+      </span>
+    </div>
+  );
+}
+
 export default function Hero() {
   return (
     <section id="top" className="relative pt-40 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-mist">
@@ -7,6 +31,11 @@ export default function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
         <div>
+          {/* Brand Logo Integration */}
+          <div className="mb-6">
+            <Logo />
+          </div>
+
           <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-7 bg-white border border-navy-100 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan pulse-dot" />
             <span className="font-mono text-xs text-teal tracking-wide">Web · Software · SEO · Meta Ads — under one roof</span>
@@ -57,7 +86,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Signature element: a signal/pulse monitor card, echoing the heartbeat mark inside the logo's "O" */}
+        {/* Signature element: signal/pulse monitor card */}
         <div className="relative">
           <div className="rounded-2xl bg-white border border-navy-100 shadow-card overflow-hidden">
             <div className="flex items-center justify-between px-6 py-4 border-b border-navy-100 bg-navy-50">
