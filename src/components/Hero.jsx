@@ -1,23 +1,58 @@
 import React from 'react';
 
-// Reusable Logo Component
-function Logo() {
+// Brand Logo component with exact original style & embedded shadow animation
+function BrandLogo() {
   return (
-    <div className="inline-flex flex-col select-none">
-      {/* Top Row: CODIFY + np animated badge */}
+    <div className="inline-flex flex-col select-none mb-6">
+      {/* Embedded CSS animation to eliminate index.css edits */}
+      <style>{`
+        @keyframes weakShadowPulse {
+          0%, 100% { box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18); }
+          50% { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35); }
+        }
+        .animate-weak-shadow {
+          animation: weakShadowPulse 2.8s ease-in-out infinite;
+        }
+      `}</style>
+
+      {/* TOP ROW: CODIFY + np badge */}
       <div className="flex items-center gap-1.5 leading-none">
-        <span className="font-display font-extrabold text-3xl tracking-tight text-navy">
-          CODIFY
-        </span>
-        <span className="relative font-mono text-xs font-bold uppercase text-white bg-black px-1.5 py-0.5 rounded transition-all duration-300 animate-black-shadow">
+        <div className="flex items-center text-[24px] sm:text-[28px] font-extrabold font-display tracking-tight text-[#1C3FD1]">
+          <span>C</span>
+          
+          {/* Signature Power / Heartbeat 'O' Mark */}
+          <span className="inline-flex items-center justify-center mx-[1px] relative w-[24px] h-[24px]">
+            <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
+              <path
+                d="M 22,32 A 40,40 0 1,0 78,32"
+                stroke="#1C3FD1"
+                strokeWidth="12"
+                strokeLinecap="round"
+              />
+              <line x1="50" y1="10" x2="50" y2="35" stroke="#1C3FD1" strokeWidth="12" strokeLinecap="round" />
+              <path
+                d="M 10,55 L 35,55 L 45,35 L 55,75 L 65,45 L 75,55 L 90,55"
+                stroke="#1FC3E6"
+                strokeWidth="8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+          
+          <span>DIFY</span>
+        </div>
+
+        {/* Animated Weak Shadow Badge */}
+        <span className="font-mono text-[10px] font-bold uppercase text-white bg-black px-1.5 py-0.5 rounded animate-weak-shadow">
           np
         </span>
       </div>
 
-      {/* Bottom Row: TECH letter-spaced under CODIFY */}
-      <span className="font-display font-semibold text-[11px] tracking-[0.38em] text-teal uppercase leading-none mt-1 pl-0.5">
+      {/* BOTTOM ROW: TECH directly below CODIFY (Same font size & style) */}
+      <div className="text-[24px] sm:text-[28px] font-extrabold font-display text-[#1C3FD1] leading-none tracking-tight mt-1">
         TECH
-      </span>
+      </div>
     </div>
   );
 }
@@ -31,10 +66,8 @@ export default function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          {/* Brand Logo Integration */}
-          <div className="mb-6">
-            <Logo />
-          </div>
+          {/* Logo element rendered cleanly at the top of content */}
+          <BrandLogo />
 
           <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-7 bg-white border border-navy-100 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan pulse-dot" />
@@ -86,7 +119,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Signature element: signal/pulse monitor card */}
+        {/* Signal monitor card */}
         <div className="relative">
           <div className="rounded-2xl bg-white border border-navy-100 shadow-card overflow-hidden">
             <div className="flex items-center justify-between px-6 py-4 border-b border-navy-100 bg-navy-50">
