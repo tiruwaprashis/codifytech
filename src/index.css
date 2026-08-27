@@ -17,7 +17,7 @@ body {
   color: #0A1E64;
 }
 
-/* Signature motif: animated heartbeat / signal pulse line, echoing the mark inside the logo's "O" */
+/* Signature motif: animated heartbeat / signal pulse line */
 .pulse-line {
   stroke-dasharray: 300;
   stroke-dashoffset: 300;
@@ -37,6 +37,21 @@ body {
   50% { transform: scale(1.6); opacity: 0.4; }
 }
 
+/* --- ADD LOGO ANIMATION HERE --- */
+.animate-black-shadow {
+  animation: blackShadowPulse 2s ease-in-out infinite;
+}
+
+@keyframes blackShadowPulse {
+  0%, 100% {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.85), 0 4px 14px rgba(0, 0, 0, 0.65);
+  }
+}
+/* ------------------------------- */
+
 /* Soft hover lift for cards */
 .lift {
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
@@ -47,7 +62,7 @@ body {
 
 /* Reduced motion respect */
 @media (prefers-reduced-motion: reduce) {
-  .pulse-line, .pulse-dot {
+  .pulse-line, .pulse-dot, .animate-black-shadow {
     animation: none !important;
   }
   html {
